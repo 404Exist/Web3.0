@@ -2,13 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/icon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f0e13" />
+    <meta property="og:site_name" content="Krypt">
+    <meta property="og:image" content="./images/logo.png">
+    <meta property="og:title" content="Krypt">
+    <meta property="og:description" content="Send Crypto across the world.">
+    <meta property="og:url" content=".">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Krypt">
+    <meta name="twitter:title" content="Krypt">
+    <meta name="twitter:description" content="Send Crypto across the world.">
+    <meta name="twitter:image" content="./images/logo.png">
+    <meta name="twitter:url" content=".">
+    <link rel="icon" type="image/png" href="/images/icon.png" />
+    <link rel="apple-touch-icon" href="./pwa/icon-192x192.png" /> 
+    <link rel="apple-touch-icon" href="./pwa/icon-256x256.png" /> 
+    <link rel="apple-touch-icon" href="./pwa/icon-384x384.png" /> 
+    <link rel="apple-touch-icon" href="./pwa/icon-512x512.png" /> 
+    <link rel="manifest" href="./pwa/manifest.json"/> 
     <title>Krypt</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log('Success: ', reg.scope))
+          .catch((err) => console.log('Failure: ', err))
+        })
+      }
+    </script>
   </body>
 </html>

@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import { TransactionProvider } from './context/TransactionContext'
 
+
 ReactDOM.render(
   <TransactionProvider>
     <React.StrictMode>
